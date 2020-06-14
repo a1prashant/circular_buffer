@@ -23,8 +23,9 @@ public:
 
     _arr[_tail] = i;
     clockwise(_tail);
-    if (_tail == _head)
+    if (_tail == _head) {
       _full = true;
+    }
   }
   void push_front(const T &i) {
     if (_full) {
@@ -33,8 +34,9 @@ public:
 
     anticlockwise(_head);
     _arr[_head] = i;
-    if (_tail == _head)
+    if (_tail == _head) {
       _full = true;
+    }
   }
   T pop_front() {
     auto &t = front();
@@ -95,24 +97,29 @@ private:
   hand_t clockwise(hand_t &hand) const {
     if (hand == _capacity - 1) {
       hand = 0;
-    } else
+    } else {
       hand++;
+    }
     return hand;
   }
   hand_t anticlockwise(hand_t &hand) const {
     if (hand == 0) {
       hand = _capacity - 1;
-    } else
+    } else {
       hand--;
+    }
     return hand;
   }
   std::size_t size() {
-    if (_full)
+    if (_full) {
       return _capacity;
-    if (_head == _tail)
+    }
+    if (_head == _tail) {
       return 0;
-    if (_head < _tail)
+    }
+    if (_head < _tail) {
       return _tail - _head;
+    }
     return (_capacity - 1 - _head) + _tail + 1;
   }
   hand_t _head = 0;
