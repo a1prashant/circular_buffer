@@ -1,4 +1,3 @@
-ytl
+very simple circular_buffer implementation
 
-
-More info: Check google test code
+More info: check test folder, main.cpp file
